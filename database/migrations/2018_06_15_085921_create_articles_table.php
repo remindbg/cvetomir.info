@@ -17,11 +17,12 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
-            $table->text('body');
+            $table->longText('body');
             $table->integer('views')->default(1);
             $table->boolean('active');
-            $table->integer('category_id');
-            $table->string('image');
+            $table->integer('category_id')->nullable();
+            $table->string('image')->nullable();
+            $table->string('language')->nullable();
             $table->timestamps();
         });
     }

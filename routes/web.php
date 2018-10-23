@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 /**
  * Front End Routes
@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/articles','ArticleController@index');
 Route::get('/articles/{category}','CategoryController@single');
-Route::get('/articles/{category}/{title}','ArticleController@single');
+Route::get('/articles/{category}/{slug}','ArticleController@single');
 Route::post('/articles/{id}','CommentController@store');
 
 /**
@@ -35,8 +35,10 @@ Route::post('/articles/{id}','CommentController@store');
  *
  */
 
+
+Route::post('/admin/articles/uploadimage','Admin\ArticleController@uploadImage');
 Route::get('/admin', function () {
-    return view('admin.home');
+    return view('layouts.adminlayout');
 }); //->middleware('auth');
 Route::resource('/admin/articles', 'Admin\ArticleController');
 Route::resource('/admin/categories', 'Admin\CategoryController');

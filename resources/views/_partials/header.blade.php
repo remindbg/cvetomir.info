@@ -8,14 +8,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>cvetomir.info</title>
+    <title>Cvetomir.info</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{URL::Asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="{{URL::Asset('css/blog-home.css')}}" rel="stylesheet">
+    @yield('metas')
 
+    <style>
+        .fix {
+            padding-top:40px;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +28,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" href="#">Cvetomir.info</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,13 +40,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Категории</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
+                    <a class="nav-link" href="#">Проекти</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">За Връзка</a>
                 </li>
             </ul>
         </div>

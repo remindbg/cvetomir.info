@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Category;
+use Illuminate\Support\Facades\Storage;
 class ArticleController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::with('category')->get();
+        $articles = Article::with('category')->OrderBy('created_at','desc')->get();
         return View('admin.articles.index',compact('articles'));
     }
 
@@ -52,9 +53,16 @@ class ArticleController extends Controller
         $article->body = $request->body;
         $article->active = true;
         $article->category_id = $request->category;
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images/articles'), $imageName);
-        $article->image = $imageName;
+        if($request->image) {
+            $imageName = time().'.'.request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('images/articles'), $imageName);
+            $article->image = $imageName;
+        }
+        else {
+            $article->image = null;
+        }
+
+        //$article->language = $request['language'];
         $article->save();
         return redirect()->route('articles.index')->with('message', 'Успешно Създадена Публикация');
     }
@@ -79,8 +87,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::findOrFail($id);
-        return view('admin.articles.edit',compact('article'));
+        $article = Article::find($id);
+        $categories = Category::all();
+        return view('admin.articles.edit',compact('article','categories'));
     }
 
     /**
@@ -92,7 +101,24 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, array(
+            'title' => 'required',
+            'slug' => 'required',
+            'body' => 'required',
+            'category' => 'required',
+            'image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ));
+        $article = Article::find($id);
+        $article->title = $request->title;
+        $article->slug = $request->slug;
+        $article->body = $request->body;
+        $article->active = true;
+        $article->category_id = $request->category;
+
+
+        //$article->language = $request['language'];
+        $article->save();
+        return redirect()->route('articles.index')->with('message', 'Успешно Редактирана Публикация');
     }
 
     /**
@@ -107,5 +133,17 @@ class ArticleController extends Controller
         $article->delete();
         return redirect()->route('articles.index')->with('message', 'Успешно Изтриване');
 
+    }
+
+    public function uploadImage()
+    {
+       // dd(request()->file('file'));
+        $imgpath = request()->file('file')->store('uploads',  'public');
+        $realfile = request()->file('file');
+        request()->file('file')->move(public_path('uploads'), $imgpath);
+
+
+
+        return json_encode(['location' => $imgpath]);
     }
 }

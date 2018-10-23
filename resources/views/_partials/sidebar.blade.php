@@ -1,18 +1,5 @@
 <!-- Sidebar Widgets Column -->
-<div class="col-md-4">
-
-    <!-- Search Widget -->
-    <div class="card my-4">
-        <h5 class="card-header">Търсене</h5>
-        <div class="card-body">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Търси!</button>
-                </span>
-            </div>
-        </div>
-    </div>
+<div class="col-lg-4">
 
     <!-- Categories Widget -->
     <div class="card my-4">
@@ -22,7 +9,7 @@
                 <div class="col-lg-12">
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="#">Web Design</a>
+                            <a href="#">Web Design</a> (4)
                         </li>
                         <li>
                             <a href="#">HTML</a>
@@ -45,13 +32,19 @@
         </div>
     </div>
     <div class="card my-4">
-        <h5 class="card-header">Популярни</h5>
+        <h5 class="card-header">Популярно</h5>
         <div class="card-body">
             You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
         </div>
     </div>
     <div class="card my-4">
         <h5 class="card-header">Етикети</h5>
+        <div class="card-body">
+            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+        </div>
+    </div>
+    <div class="card my-4">
+        <h5 class="card-header">Коментари</h5>
         <div class="card-body">
             You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
         </div>
