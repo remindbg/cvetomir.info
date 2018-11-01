@@ -62,7 +62,7 @@ class ArticleController extends Controller
             $article->image = null;
         }
 
-        //$article->language = $request['language'];
+        $article->tags = $request['tags'];
         $article->save();
         return redirect()->route('articles.index')->with('message', 'Успешно Създадена Публикация');
     }
@@ -115,8 +115,7 @@ class ArticleController extends Controller
         $article->active = true;
         $article->category_id = $request->category;
 
-
-        //$article->language = $request['language'];
+        $article->tags = $request['tags'];        //$article->language = $request['language'];
         $article->save();
         return redirect()->route('articles.index')->with('message', 'Успешно Редактирана Публикация');
     }

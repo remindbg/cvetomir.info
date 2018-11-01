@@ -8,15 +8,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-unstyled mb-0">
+                        @foreach($cats as $cat )
                         <li>
-                            <a href="#">Web Design</a> (4)
+                            <a href="/category/{{$cat->id}}/{{$cat->slug}}">{{$cat->title}}</a> ({{$cat->articles->count()}})
                         </li>
-                        <li>
-                            <a href="#">HTML</a>
-                        </li>
-                        <li>
-                            <a href="#">Freebies</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
 
@@ -28,25 +24,21 @@
     <div class="card my-4">
         <h5 class="card-header">Последно</h5>
         <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            <ul class="list-unstyled mb-0">
+                @foreach($latestarticles as $article)
+                    <li class="small">
+                        <a href="/articles/{{$article->id}}/{{$article->slug}}">{{$article->title}}</a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </div>
-    <div class="card my-4">
-        <h5 class="card-header">Популярно</h5>
-        <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-        </div>
-    </div>
-    <div class="card my-4">
-        <h5 class="card-header">Етикети</h5>
-        <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-        </div>
-    </div>
+
+
     <div class="card my-4">
         <h5 class="card-header">Коментари</h5>
         <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            Скоро
         </div>
     </div>
 

@@ -11,7 +11,9 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{{URL::Asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{URL::Asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{URL::Asset('vendor/tinymce/plugins/codesample/prism.js')}}"></script>
 
+@yield('scripts')
 </body>
 
 </html>

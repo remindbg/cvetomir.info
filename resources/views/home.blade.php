@@ -1,29 +1,32 @@
 @extends('layouts.app')
 
+@section('meta')
+    <title>Cvetomir.info - Личен Блог</title>
+    <meta name="description" content="cvetomir.info - Личен Блог - Можете да намерите различни статии, предимно свързани с програмиране и WEB">
+    <meta property="og:title" content="cvetomir.info - Личен Блог"/>
+    <meta property="og:type" content="blog"/>
+@endsection
+
+
 @section('content')
 
     <!-- Blog Post -->
+    @foreach($articles as $article)
     <div class="card mb-4">
         <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="small text-muted">Etiketi: Cvetomir | Pregleda 123231 | 56 Komentara</p>
+            <a href="/articles/{{$article->id}}/{{$article->slug}}"><h4 class="">{{$article->title}}</h4></a>
+            <p class="small text-muted"> Прегледа {{$article->views}} |  Коментари  | Категория: <a href="/category/{{$article->category->id}}/{{$article->category->slug}}">{{$article->category->title}}</a></p>
             <div class="row">
-                <div class="col-lg-3">
-                    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-
-                </div>
                 <div class="col-lg-9">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
+                    <p class="card-text">{!! strip_tags($article->body) !!}</p>
                 </div>
             </div>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
         </div>
         <div class="card-footer text-muted">
-            Posted on January 1, 2017 by
-            <a href="#">Start Bootstrap</a> | 3 Komentara | 123 Pregleda
-        </div>
+            <small> <i>Дата: {{$article->created_at->format('j F Y')}}
+             | Етикети: {{$article->tags}}
+            </i></small></div>
     </div>
-    <!-- Pagination -->
+    @endforeach
 
 @endsection

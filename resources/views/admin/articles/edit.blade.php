@@ -35,14 +35,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="category">Език</label>
-                <select class="form-control" name="language" id="language">
-
-                    <option value="bg">Български</option>
-                    <option value="en">English</option>
-
-
-                </select>
+                <label for="slug">Тагове</label>
+                <input type="text" id="tags" class="form-control" value="{{$article->tags}}" name="tags">
             </div>
 
             <div class="form-group">
