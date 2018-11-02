@@ -46,12 +46,13 @@ class ArticleController extends Controller
             'body' => 'required',
             'category' => 'required',
             'image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
         ));
+
         $article = new Article();
         $article->title = $request->title;
         $article->slug = $request->slug;
         $article->body = $request->body;
-        $article->active = true;
         $article->category_id = $request->category;
         if($request->image) {
             $imageName = time().'.'.request()->image->getClientOriginalExtension();
@@ -63,6 +64,12 @@ class ArticleController extends Controller
         }
 
         $article->tags = $request['tags'];
+        if($request->has('active')) {
+            $article->active = true;
+
+        } else {
+            $article->active = false;
+        }
         $article->save();
         return redirect()->route('articles.index')->with('message', 'Успешно Създадена Публикация');
     }
@@ -112,10 +119,14 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->slug = $request->slug;
         $article->body = $request->body;
-        $article->active = true;
         $article->category_id = $request->category;
 
-        $article->tags = $request['tags'];        //$article->language = $request['language'];
+        $article->tags = $request['tags'];
+        if($request->has('active')) {
+            $article->active = true;
+        } else {
+            $article->active = false;
+        }
         $article->save();
         return redirect()->route('articles.index')->with('message', 'Успешно Редактирана Публикация');
     }
@@ -139,6 +150,7 @@ class ArticleController extends Controller
        // dd(request()->file('file'));
         $imgpath = request()->file('file')->store('uploads',  'public');
         $realfile = request()->file('file');
+        // todo fix the paths
         request()->file('file')->move(public_path('uploads'), $imgpath);
 
 

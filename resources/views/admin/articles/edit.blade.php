@@ -45,7 +45,7 @@
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input class="form-check-input" selected="selected" name="active" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" @if($article->active == true) checked="checked" @endif name="active" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                         Одобрена?
                     </label>

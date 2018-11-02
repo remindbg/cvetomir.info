@@ -39,9 +39,7 @@ Route::get('/category/{id}/{slug}','CategoryController@single');
 
 
 Route::post('/admin/articles/uploadimage','Admin\ArticleController@uploadImage')->middleware('auth');
-Route::get('/admin', function () {
-    return view('layouts.adminlayout');
-})->middleware('auth');
+Route::get('/admin','Admin\ArticleController@index')->middleware('auth');
 Route::resource('/admin/categories', 'Admin\CategoryController')->middleware('auth');
 Route::resource('/admin/articles', 'Admin\ArticleController')->middleware('auth');
 

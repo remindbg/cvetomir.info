@@ -20,7 +20,8 @@ class AppServiceProvider extends ServiceProvider
 
             $latestarticles = Article::orderBy('created_at','desc')->get();
             $cats = Category::all();
-            $popularArticles = Article::orderBy('views','asc')->get();
+            $populararticles = Article::get()->sortByDesc('views');
+
             $view->with(compact('latestarticles','cats','populararticles'));
 
         });

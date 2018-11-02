@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articles = Article::with('category')->orderBy('created_at','desc')->get();
+        $articles = Article::with('category')->Approved()->orderBy('created_at','desc')->get();
         return view('home',compact('articles'));
     }
 }

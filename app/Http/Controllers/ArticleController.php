@@ -16,9 +16,15 @@ class ArticleController extends Controller
     public function single($id,$slug)
     {
         $article = Article::findOrFail($id);
-        $article->views++;
-        $article->save();
-        return view('articles.single',compact('article'));
+        if($article->active == true) {
+            $article->views++;
+            $article->save();
+            return view('articles.single',compact('article'));
+        }
+        else {
+            abort(404, 'Статията не е открита');
+        }
+
     }
 
 
