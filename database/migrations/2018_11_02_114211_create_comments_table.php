@@ -20,6 +20,8 @@ class CreateCommentsTable extends Migration
             $table->text('body');
             $table->integer('user_id')->nullable();
             $table->boolean('active')->default(false);
+            $table->unsignedInteger('article_id')->nullable();
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@ Route::get('/projects/', function () {
  */
 
 Route::get('/articles','ArticleController@index');
-Route::get('/articles/{category}/{slug}','ArticleController@single');
+Route::get('/articles/{category}/{slug}','ArticleController@single')->name('singleArticle');
 //Route::get('/articles/{id}/{slug}','ArticleController@show')->name('frontsinglearticle');
 Route::get('/category/{id}/{slug}','CategoryController@single');
 /**
@@ -35,6 +35,7 @@ Route::get('/category/{id}/{slug}','CategoryController@single');
  * note: All Admin Controllers are using Resource for routes, expect the homepage
  *
  */
+Route::post('/{article_id}/comment', 'CommentController@store')->name('comment.store');
 
 
 

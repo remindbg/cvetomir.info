@@ -17,4 +17,8 @@ class Article extends Model
     {
         return $query->where('active', true);
     }
+
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
 }

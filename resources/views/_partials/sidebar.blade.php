@@ -32,7 +32,6 @@
                         </li>
 
                     @endif
-
                 @endforeach
             </ul>
         </div>
@@ -46,7 +45,6 @@
                         <li class="small">
                             <a href="/articles/{{$article->id}}/{{$article->slug}}">{{$article->title}}<span class="small">({{$article->views}})</span></a>
                         </li>
-
                     @endif
 
                 @endforeach

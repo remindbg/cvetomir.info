@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="bg">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Cvetomir">
-
     @yield('meta')
-<!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121116559-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -17,24 +12,13 @@
 
         gtag('config', 'UA-121116559-2');
     </script>
-
-
-    <!-- Bootstrap core CSS -->
     <link href="{{URL::Asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="{{URL::Asset('css/blog-home.css')}}" rel="stylesheet">
-    {{--prismJS--}}
-    <link href='{{URL::Asset('vendor/tinymce/plugins/codesample/css/prism.css')}}' rel="stylesheet"/>
+    <link href='{{URL::Asset('vendor/tinymce/plugins/codesample/css/prism.min.css')}}' rel="stylesheet"/>
     <style>
-        .fix {
-            padding-top:40px;
-        }
+        body{padding-top:54px;padding-bottom:70px}@media (min-width:992px){body{padding-top:56px}}
     </style>
 </head>
-
 <body>
-
-<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">Cvetomir.info</a>
@@ -53,7 +37,6 @@
                         @endforeach
                     </div>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="/projects">Проекти</a>
                 </li>
