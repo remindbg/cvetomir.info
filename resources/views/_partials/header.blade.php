@@ -8,6 +8,15 @@
     <meta name="author" content="Cvetomir">
 
     @yield('meta')
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121116559-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-121116559-2');
+    </script>
 
 
     <!-- Bootstrap core CSS -->
@@ -16,8 +25,6 @@
     <link href="{{URL::Asset('css/blog-home.css')}}" rel="stylesheet">
     {{--prismJS--}}
     <link href='{{URL::Asset('vendor/tinymce/plugins/codesample/css/prism.css')}}' rel="stylesheet"/>
-
-
     <style>
         .fix {
             padding-top:40px;
