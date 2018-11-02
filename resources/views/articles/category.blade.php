@@ -17,8 +17,17 @@
                 <a href="/articles/{{$article->id}}/{{$article->slug}}"><h4 class="">{{$article->title}}</h4></a>
                 <p class="small text-muted"> Прегледа {{$article->views}} |  Коментари  | Категория: <a href="/category/{{$article->category->id}}/{{$article->category->slug}}">{{$article->category->title}}</a></p>
                 <div class="row">
+                    <div class="col-lg-3">
+                        @if($article->image)
+                            <div class="row justify-content-center">
+
+                                <img class="img-thumbnail" src="{{url('/images/articles/'.$article->image)}}" style="width: 180px; height: 100px;">
+
+                            </div>
+                        @endif
+                    </div>
                     <div class="col-lg-9">
-                        <p class="card-text">{!! strip_tags($article->body) !!}</p>
+                        <p class="card-text">{!! str_limit(strip_tags($article->body),250) !!}</p>
                     </div>
                 </div>
             </div>
