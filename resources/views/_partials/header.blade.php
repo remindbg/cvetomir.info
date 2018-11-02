@@ -9,7 +9,15 @@
 
     @yield('meta')
 <!-- Global site tag (gtag.js) - Google Analytics -->
-   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121116559-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-121116559-2');
+    </script>
+
 
     <!-- Bootstrap core CSS -->
     <link href="{{URL::Asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
