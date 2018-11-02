@@ -53,6 +53,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Контакт</a>
                 </li>
+                @if(Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/" target="_blank">Admin Panel</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
