@@ -4,7 +4,7 @@
     <title>{{$article->title}} Cvetomir.info</title>
     <meta name="description" content="{{$article->title}} - cvetomir.info - Личен Блог">
     <meta name="keywords" content="{{$article->tags}}">
-    <meta property="og:image" content="@if($article->image){{$article->image}}@endif"/>
+    <meta property="og:image" content="@if($article->image){{url('/images/articles/'.$article->image)}}@endif"/>
     <meta property="og:title" content="{{$article->title}}"/>
     <meta property="og:type" content="blog"/>
 @endsection
