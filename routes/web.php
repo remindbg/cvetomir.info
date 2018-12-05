@@ -44,3 +44,6 @@ Route::get('/admin','Admin\ArticleController@index')->middleware('auth');
 Route::resource('/admin/categories', 'Admin\CategoryController')->middleware('auth');
 Route::resource('/admin/articles', 'Admin\ArticleController')->middleware('auth');
 
+Route::get('/admin/articles/{id}/category','Admin\CategoryController@attachCategory')->middleware('auth');
+Route::post('/admin/articles/{id}/category','Admin\CategoryController@attachCategoryPost')->name('addcategory')->middleware('auth');
+

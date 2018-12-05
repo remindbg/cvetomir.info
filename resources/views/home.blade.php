@@ -14,7 +14,11 @@
     <div class="card mb-4">
         <div class="card-body">
             <a href="/articles/{{$article->id}}/{{$article->slug}}"><h4 class="">{{$article->title}}</h4></a>
-            <p class="small text-muted"> Прегледа {{$article->views}} |  Коментари  | Категория: <a href="/category/{{$article->category->id}}/{{$article->category->slug}}">{{$article->category->title}}</a></p>
+            <p class="small text-muted"> Прегледа {{$article->views}} |  Коментари  | Категория:
+                @foreach($article->category as $category)
+                <a href="/category/{{$category->id}}/{{$category->slug}}">{{$category->title}}</a>
+                @endforeach
+            </p>
             <div class="row">
                 <div class="col-lg-3">
                     @if($article->image)

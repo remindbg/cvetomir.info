@@ -17,6 +17,11 @@
             @csrf()
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div>Статията се намира в следните категории::
+                @foreach($article->category as $cat)
+                    {{$cat->title}},
+                @endforeach
+            </div>
             <div class="form-group">
                 <label for="title">Заглавие</label>
                 <input type="text" id="title" class="form-control" name="title" value="{{$article->title}}">
@@ -27,6 +32,7 @@
             </div>
 
             <div class="form-group">
+                <a href="/admin/articles/{{$article->id}}/category/" class="btn btn-block">Нови Категории</a>
                 <label for="category">Категория</label>
                 <select class="form-control" name="category" id="category">
                     @foreach($categories as $category)

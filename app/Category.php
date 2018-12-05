@@ -10,6 +10,6 @@ class Category extends Model
     protected $guarded = [];
 
     public function articles() {
-        return $this->hasMany('App\Article')->latest()->approved();
+        return $this->belongsToMany('App\Article','category_article')->latest()->approved();
     }
 }

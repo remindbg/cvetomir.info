@@ -10,7 +10,7 @@ class Article extends Model
     protected $guarded = [];
 
     public function category(){
-        return $this->belongsTo('App\Category','category_id');
+        return $this->belongsToMany('App\Category','category_article');
     }
 
     public function scopeApproved($query)

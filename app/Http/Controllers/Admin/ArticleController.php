@@ -81,6 +81,8 @@ class ArticleController extends Controller
             $article->active = false;
         }
         $article->save();
+        $category_id = Category::find($request->category);
+        $article->category()->attach($category_id);
         return redirect()->route('articles.index')->with('message', 'Успешно Създадена Публикация');
     }
 
@@ -104,7 +106,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::find($id);
+        $article = Article::with('category')->get()->find($id);
         $categories = Category::all();
         return view('admin.articles.edit',compact('article','categories'));
     }

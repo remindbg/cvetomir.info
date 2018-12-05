@@ -28,7 +28,6 @@
                 <th scope="row">{{$article->id}}</th>
                 <td>{{$article->title}}</td>
                 <td>{{$article->active}}</td>
-                <td>{{$article->category->title}}</td>
                 <td>{{$article->created_at}}</td>
                     <td> <form method="POST" action="{{route('articles.destroy',['id' => $article->id])}}">
                             @method('delete')

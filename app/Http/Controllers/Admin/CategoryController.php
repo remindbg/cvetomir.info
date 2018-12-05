@@ -2,17 +2,45 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use Session;
 class CategoryController extends Controller
 {
+
+
+
+
+    public function attachCategory($id) {
+        $article = Article::find($id);
+        $categories = Category::all();
+        return view('admin.articles.addcategory',compact('article','categories'));
+    }
+
+
+    public function attachCategoryPost($id,Request $request) {
+        $article = Article::with('category')->get()->find($id);
+        $category = Category::find($request->category);
+        $article->category()->syncWithoutDetaching($category);
+        return redirect()->route('articles.index')->with('message', 'Успешно Добавена Категория');
+
+
+    }
+
+
+
+
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $categories = Category::all();
