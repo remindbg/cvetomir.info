@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Article;
 use App\Category;
+use App\Comment;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -21,8 +22,9 @@ class AppServiceProvider extends ServiceProvider
             $latestarticles = Article::orderBy('created_at','desc')->get();
             $cats = Category::all();
             $populararticles = Article::get()->sortByDesc('views');
+            $comments = Comment::with('articles')->latest()->get();
 
-            $view->with(compact('latestarticles','cats','populararticles'));
+            $view->with(compact('latestarticles','cats','populararticles','comments'));
 
         });
     }

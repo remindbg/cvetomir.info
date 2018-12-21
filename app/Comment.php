@@ -13,4 +13,13 @@ class Comment extends Model
         return $this->belongsTo('App\Article');
     }
 
+    public function scopeApproved($query)
+    {
+        return $query->where('active', true);
+    }
+
+    public function articles() {
+        return $this->belongsTo('App\Article');
+    }
+
 }

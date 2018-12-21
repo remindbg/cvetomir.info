@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::with('articles')->orderBy('created_at','desc')->get();
+       // dd($comments);
+        return view('admin.comments.all',compact('comments'));
     }
 
     /**
@@ -35,7 +38,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -46,7 +49,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -57,7 +60,8 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('admin.comments.edit',compact('comment'));
     }
 
     /**
@@ -69,7 +73,20 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment = Comment::find($id);
+        $comment->name = $request['name'];
+        $comment->email = $request['email'];
+        $comment->body = $request['body'];
+        if($request->has('active')) {
+            $comment->active = true;
+
+        } else {
+            $comment->active = false;
+        }
+        $comment->save();
+        return redirect()->route('allcomments')->with('message', 'Успешно Редактиран Коментар');
+
+
     }
 
     /**

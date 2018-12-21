@@ -53,9 +53,9 @@
     </div>
 
     <div class="card my-4">
-        <h5 class="card-header">Коментари</h5>
-        <div class="card-body">
-            Скоро
+        <h5 class="card-header">За Връзка</h5>
+        <div class="card-body small">
+            Можете да ми пишете на remindbg @ gmail.com
         </div>
     </div>
 

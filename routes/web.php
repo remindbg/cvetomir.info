@@ -47,3 +47,9 @@ Route::resource('/admin/articles', 'Admin\ArticleController')->middleware('auth'
 Route::get('/admin/articles/{id}/category','Admin\CategoryController@attachCategory')->middleware('auth');
 Route::post('/admin/articles/{id}/category','Admin\CategoryController@attachCategoryPost')->name('addcategory')->middleware('auth');
 
+//comments
+Route::get('/admin/comments/','Admin\CommentController@index')->name('allcomments')->middleware('auth');
+Route::post('/admin/comments/{id}/destroy','Admin\CommentController@index')->middleware('auth')->name('deletecomment');
+Route::get('/admin/comments/{id}/edit','Admin\CommentController@edit')->middleware('auth')->name('editcomment');
+Route::post('/admin/comments/{id}/update', 'Admin\CommentController@update')->name('updatecomment')->middleware('auth');
+

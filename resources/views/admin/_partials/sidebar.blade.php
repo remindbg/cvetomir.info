@@ -37,6 +37,8 @@
         </div>
     </div>
 
+
+@endforeach
     <!-- Side Widget -->
     <div class="card my-4">
         <h5 class="card-header">Последно</h5>
