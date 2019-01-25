@@ -14,7 +14,7 @@
     <div class="card mb-4">
         <div class="card-body">
             <h2 class="card-title">{{$article->title}}</h2>
-            <p class="small text-muted"> Pregleda {{$article->views}} | Коментари</p>
+            <p class="small text-muted"> Прегледа {{$article->views}} | Коментари</p>
             @if($article->image)
             <div class="row justify-content-center">
             <div class="col-lg-7 text-center">
@@ -61,7 +61,7 @@
                     <div class="col-5">
                         <div class="input-group">
 
-                            <input id="email" name="email" type="text" required="required" class="form-control here">
+                            <input id="email" name="email" type="email" required="required" class="form-control here">
                         </div>
                     </div>
                 </div>

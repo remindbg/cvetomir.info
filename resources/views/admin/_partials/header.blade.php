@@ -40,7 +40,7 @@
                     <a class="nav-link" href="/admin/tags">Tags</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/comments">Comments</a>
+                    <a class="nav-link" href="/admin/comments">Comments</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/" target="_blank">Към Блога</a>

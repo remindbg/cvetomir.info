@@ -97,6 +97,9 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $comment->delete();
+        return redirect()->route('allcomments')->with('message', 'Коментара Е изтрит!');
+
     }
 }

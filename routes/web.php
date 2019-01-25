@@ -49,7 +49,7 @@ Route::post('/admin/articles/{id}/category','Admin\CategoryController@attachCate
 
 //comments
 Route::get('/admin/comments/','Admin\CommentController@index')->name('allcomments')->middleware('auth');
-Route::post('/admin/comments/{id}/destroy','Admin\CommentController@index')->middleware('auth')->name('deletecomment');
+Route::post('/admin/comments/{id}/destroy','Admin\CommentController@destroy')->middleware('auth')->name('deletecomment');
 Route::get('/admin/comments/{id}/edit','Admin\CommentController@edit')->middleware('auth')->name('editcomment');
 Route::post('/admin/comments/{id}/update', 'Admin\CommentController@update')->name('updatecomment')->middleware('auth');
 

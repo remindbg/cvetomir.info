@@ -35,7 +35,7 @@
 					<td>{{ str_limit(strip_tags($comment->body), 20) }}</td>
 					<td>{{$comment->created_at}}</td>
 					<td> <form method="POST" action="{{route('deletecomment',['id' => $comment->id])}}">
-							@method('delete')
+							@method('post')
 							@csrf
 							<a href="{{route('editcomment',['id'=>$comment->id])}}">
 								<button type="button" class="btn-sm btn btn-warning">Edit</button>
